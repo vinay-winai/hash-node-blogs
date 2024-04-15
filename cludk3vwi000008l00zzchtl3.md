@@ -12,7 +12,7 @@ tags: delete, linked-list, array, dynamic-arrays, delete-node-in-a-linked-list
 
 **Note:** Consider the C++ vector in place of the Python list, i.e., assume a contiguous memory layout, and items as values are stored in a dynamic array instead of item references.
 
-If we want to delete at any location without changing the order of items in the array, the time complexity of each delete would be linear O(N) + O(N) for traversal because all the items after the deleted one have to be shifted backward by one position.
+If we want to delete at any location without changing the order of items in the array, the time complexity of each delete would be linear, O(N) for traversal + O(N) additionally because all the items after the deleted one have to be shifted backward by one position.
 
 A simple solution to avoid the shifts would be to mark the items as deleted instead of actually removing them. This operation is as simple as replacing the item with an item of the same type and the one you would not expect to be present in your scenario. For example, if you are holding order\_ids as type int, you wouldn't use 0 as id so choose 0 as your item delete marker. With this single optimization, we made deletion in arrays orders of magnitudes faster than linked lists deletion even though both have the same time complexity ( traversal O(N) + deletion O(1) ). This is because arrays store items compactly and contiguously which means lots of cache hits hence blazingly fast.
 
